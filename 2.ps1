@@ -27,13 +27,14 @@ Set-Variable pi -Option Constant -Value 3.14
 
 [string]$Root = "C:\"
 [string]$NameFolder = "MAKSIM_TKACHUK"
-if ((Test-Path $Root$NameFolder"\") -ne "True")                         # Проверка на наличие и смена папки
+[string]$RootNameFolder = $Root + $NameFolder                           # Сохранение пути в переменную
+if ((Test-Path $RootNameFolder) -ne "True")                             # Проверка на наличие и смена папки
 {  
    New-Item -Path $Root -Name $NameFolder -ItemType "Directory"
-   Set-Location $Root$NameFolder  
+   Set-Location $RootNameFolder 
 }
 else {
-   Set-Location $Root$NameFolder                                        # Меняем текущую папку
+   Set-Location $RootNameFolder                                         # Меняем текущую папку
 }
 
 ### 2.6. Вывести приветсвие
