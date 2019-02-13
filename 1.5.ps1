@@ -37,7 +37,7 @@ Get-ChildItem -LiteralPath HKLM:\SOFTWARE\Microsoft | Export-Clixml -Path $Root$
 $DataSecurityUpdates = Get-Content -Path $Root$NameFolder"\"$NameFileCSV          # Читаем .csv файл
 $DataReg = Get-Content -Path $Root$NameFolder"\"$NameFileXML                      # Читаем .xml файл
 
-function Out ($Data, [System.ConsoleColor]$Color)                                 # Функция вывода
+function OutColor ($Data, [System.ConsoleColor]$Color)                            # Функция вывода
 {
     foreach ($i in $Data)
     {
@@ -45,5 +45,5 @@ function Out ($Data, [System.ConsoleColor]$Color)                               
     }
 }
 
-Out -data $DataSecurityUpdates -color "Green"
-Out -data $DataReg -color "Yellow"
+OutColor -data $DataSecurityUpdates -color "Green"
+OutColor -data $DataReg -color "Yellow"
